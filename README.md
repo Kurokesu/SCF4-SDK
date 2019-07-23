@@ -26,3 +26,5 @@ Managed mode (default) target applications worth mentioning:
 * And much more...
 
 More details and ordering info at [https://www.kurokesu.com](https://www.kurokesu.com)
+
+![](doc/scf4-m_gui_demo.png)
