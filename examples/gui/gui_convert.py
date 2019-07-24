@@ -1,3 +1,8 @@
+__author__      = "Saulius Lukse"
+__copyright__   = "Copyright 2019, Kurokesu"
+__license__     = "MIT"
+
+
 from PyQt5 import uic
 import glob
 
