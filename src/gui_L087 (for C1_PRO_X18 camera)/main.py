@@ -45,6 +45,11 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.original_window_name = self.windowTitle()
         self.setWindowTitle(self.original_window_name + " (" + version.__version__ + ")")
 
+        pixmap = QtGui.QPixmap('camera.jpg')
+        pixmap = pixmap.scaled(160, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.label_picture.setPixmap(pixmap)
+        self.resize(400, 400)  # make main window as small as possible
+
 
         self.config = {}
         self.config = utils.json_boot_routine(SETTINGS_FILE)
