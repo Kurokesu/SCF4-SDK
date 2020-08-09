@@ -1,7 +1,10 @@
 Kurokesu SCF4 multi-axis stepper motor controller System On Module (SOM) targets applications where time to market, reliability and small footprint is important. Main control MCU is ST Cortex STM32F103 powerful enough either to run standard or run dedicated standalone firmware. The motor front end is based on ON Semiconductor new and highly specialized chipset LC898201. 
 
 
-**[Full documentation moved to WIKI](https://wiki.kurokesu.com/books/scf4)**
+Full documentation moved to **[WIKI](https://wiki.kurokesu.com/books/scf4)**
+
+More details and ordering info at **[https://www.kurokesu.com](https://www.kurokesu.com)**
+
 
 ![](doc/cameras.jpg)
 
@@ -30,6 +33,5 @@ Managed mode (default) target applications worth mentioning:
 * Distant camera installations that may require reconfiguring optical train remotely
 * And much more...
 
-More details and ordering info at [https://www.kurokesu.com](https://www.kurokesu.com)
 
 ![](doc/scf4-m_gui_demo.png)
