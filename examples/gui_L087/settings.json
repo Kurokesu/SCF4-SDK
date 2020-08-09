@@ -1,0 +1,70 @@
+{
+    "boot_count": 533,
+    "clean_exit": true,
+    "current": {
+        "A": {
+            "pos": 18774,
+            "speed": 499
+        },
+        "B": {
+            "pos": 5630,
+            "speed": 1337
+        },
+        "C": {
+            "pos": 0,
+            "speed": 1830
+        }
+    },
+    "defaults": {
+        "A": {
+            "jog_steps": 200,
+            "jog_steps_fine": 50,
+            "pos": 0,
+            "speed": 0
+        },
+        "B": {
+            "jog_steps": 100,
+            "jog_steps_fine": 20,
+            "pos": 0,
+            "speed": 0
+        },
+        "C": {
+            "jog_steps": 100,
+            "jog_steps_fine": 10,
+            "pos": 0,
+            "speed": 0
+        }
+    },
+    "port": "COM13",
+    "presets": {
+        "1": {
+            "A": 18774,
+            "B": 5630,
+            "C": 0
+        },
+        "2": {
+            "A": 14974,
+            "B": 6630,
+            "C": 0
+        },
+        "3": {
+            "A": 9574,
+            "B": 8530,
+            "C": 0
+        },
+        "4": {
+            "A": 2574,
+            "B": 9230,
+            "C": 0
+        },
+        "5": {
+            "A": 374,
+            "B": 5630,
+            "C": 0
+        }
+    },
+    "seek_timeout": 5.0,
+    "speed_default": 600,
+    "speed_max": 4000,
+    "speed_min": 400
+}
