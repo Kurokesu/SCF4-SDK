@@ -437,7 +437,7 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
             self.btn_disconnect.setEnabled(True)
             self.hw.action_recipe.put("init")
             self.hw.action_recipe.put("version")
-            self.hw.action_recipe.put("status1")
+            self.hw.action_recipe.put("status2")
             self.hw.action_recipe.put("voltage")
 
         if text == "Disconnected":
@@ -450,11 +450,12 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.label_ser_version.setText(text)
 
     def serVoltage(self, text):
-        v = (float)(text.split("=")[1])
-        v = v/4096.0*3.3/0.5
+        if text.find("ADC") >= 0:
+            v = (float)(text.split("=")[1])
+            v = v/4096.0*3.3/0.5
 
-        #self.label_voltage.setText(str(round(v, 2)).format(2))
-        self.label_voltage.setText('VUSB={0:01.1f}V'.format(v))
+            #self.label_voltage.setText(str(round(v, 2)).format(2))
+            self.label_voltage.setText('VUSB={0:01.1f}V'.format(v))
 
     def serFeedback(self, data):
         if len(data) == 9:

@@ -69,6 +69,7 @@ class SerialComm(QObject):
     @pyqtSlot()
     def serial_worker(self):
         idle_counter = 0
+        status_version = ""
 
         while True:
             try:
@@ -131,6 +132,17 @@ class SerialComm(QObject):
                         '''
 
                         if rec == "status1":
+                            status_version = "status1"
+                            ser.write(bytes('!1\r\n', 'utf8'))
+                            r = ser.readline().decode("utf-8").strip()
+                            st = []
+                            for i in r.split(","):
+                                st.append(int(i.strip()))
+                            self.feedback.emit(st)
+                            idle_counter = 0
+
+                        if rec == "status2":
+                            status_version = "status2"
                             ser.write(bytes('!1\r\n', 'utf8'))
                             r = ser.readline().decode("utf-8").strip()
                             st = []
@@ -220,9 +232,10 @@ class SerialComm(QObject):
                         #print(f, r)
                         idle_counter = 0
 
-                    if idle_counter >= IDLE_TIMEOUT:
-                        idle_counter = 0
-                        self.action_recipe.put("status1")
+                    if len(status_version) > 1:
+                        if idle_counter >= IDLE_TIMEOUT:
+                            idle_counter = 0
+                            self.action_recipe.put(status_version)
 
                     # count few cycles with no delay
                     idle_counter += 1
