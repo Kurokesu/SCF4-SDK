@@ -1,14 +1,14 @@
 {
-    "boot_count": 5,
+    "boot_count": 539,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 0,
-            "speed": 499
+            "pos": 38720,
+            "speed": 250
         },
         "B": {
-            "pos": 0,
-            "speed": 1337
+            "pos": 36779,
+            "speed": 250
         },
         "C": {
             "pos": 0,
@@ -35,7 +35,7 @@
             "speed": 0
         }
     },
-    "port": "COM24",
+    "port": "COM19",
     "presets": {
         "1": {
             "A": 513,
@@ -53,8 +53,8 @@
             "C": 0
         },
         "4": {
-            "A": 21363,
-            "B": 7350,
+            "A": 38720,
+            "B": 36779,
             "C": 0
         },
         "5": {
@@ -64,7 +64,7 @@
         }
     },
     "seek_timeout": 5.0,
-    "speed_default": 600,
+    "speed_default": 350,
     "speed_max": 4000,
-    "speed_min": 400
+    "speed_min": 300
 }
