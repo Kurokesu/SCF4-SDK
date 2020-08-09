@@ -2,7 +2,7 @@ Kurokesu SCF4 multi-axis stepper motor controller System On Module (SOM) targets
 
 **[Full documentation moved to WIKI](https://wiki.kurokesu.com/books/scf4)**
 
-![](doc/SCF4_Evaluation_board_with_module_soldered.jpg)
+![](doc/Kurokesu_SCF4-breakout_1.jpg)
 
 Some standalone use examples:
 
