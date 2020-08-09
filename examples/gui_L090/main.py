@@ -223,7 +223,7 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         if not self.controls_enabled and status:
             self.group_a.setEnabled(True)
             self.group_b.setEnabled(True)
-            self.group_c.setEnabled(True)
+            #self.group_c.setEnabled(True)
             self.group_d.setEnabled(True)
             self.group_aux.setEnabled(True)
             self.group_pi.setEnabled(True)
@@ -238,7 +238,7 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         if self.controls_enabled and not status:
             self.group_a.setEnabled(False)
             self.group_b.setEnabled(False)
-            self.group_c.setEnabled(False)
+            #self.group_c.setEnabled(False)
             self.group_d.setEnabled(False)
             self.group_aux.setEnabled(False)
             self.group_pi.setEnabled(False)

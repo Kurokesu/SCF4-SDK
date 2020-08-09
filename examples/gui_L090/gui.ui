@@ -121,7 +121,7 @@
        <string notr="true"/>
       </property>
       <property name="title">
-       <string>Motor A</string>
+       <string>Motor A / ZOOM</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
@@ -463,7 +463,7 @@
        <bool>false</bool>
       </property>
       <property name="title">
-       <string>Motor B</string>
+       <string>Motor B / FOCUS</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
@@ -798,7 +798,7 @@
        <bool>false</bool>
       </property>
       <property name="title">
-       <string>Motor C</string>
+       <string>Motor C / UNUSED</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="0">
