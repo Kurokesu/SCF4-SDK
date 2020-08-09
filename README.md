@@ -6,9 +6,9 @@ Full documentation moved to **[WIKI](https://wiki.kurokesu.com/books/scf4)**
 More details and ordering info at **[https://www.kurokesu.com](https://www.kurokesu.com)**
 
 
-![](doc/cameras.jpg)
+![](pictures/cameras.jpg)
 
-![](doc/Kurokesu_SCF4-breakout_1.jpg)
+![](pictures/Kurokesu_SCF4-breakout_1.jpg)
 
 Some standalone use examples:
 
@@ -34,4 +34,4 @@ Managed mode (default) target applications worth mentioning:
 * And much more...
 
 
-![](doc/scf4-m_gui_demo.png)
+![](pictures/scf4-m_gui_demo.png)
