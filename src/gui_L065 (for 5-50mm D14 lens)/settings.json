@@ -1,13 +1,13 @@
 {
-    "boot_count": 539,
+    "boot_count": 541,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 38720,
+            "pos": 0,
             "speed": 250
         },
         "B": {
-            "pos": 36779,
+            "pos": 0,
             "speed": 250
         },
         "C": {
