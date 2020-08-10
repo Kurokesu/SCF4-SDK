@@ -337,13 +337,13 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.hw.send("G0 C" + str(self.config["defaults"]["C"]["jog_steps_fine"]) + "\r\n")
 
     def btn_a_0_clicked(self):
-        self.hw.send("G92 A0\r\n")
+        self.hw.send("G92 A32000\r\n")
 
     def btn_b_0_clicked(self):
-        self.hw.send("G92 B0\r\n")
+        self.hw.send("G92 B32000\r\n")
 
     def btn_c_0_clicked(self):
-        self.hw.send("G92 C0\r\n")
+        self.hw.send("G92 C32000\r\n")
 
     def btn_a_stop_clicked(self):
         self.hw.send("M0 A\r\n")

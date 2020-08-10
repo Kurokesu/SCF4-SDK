@@ -253,6 +253,12 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>Seek ref</string>
            </property>
@@ -280,7 +286,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Set 0</string>
+            <string>Mark home</string>
            </property>
           </widget>
          </item>
@@ -595,6 +601,12 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>Seek ref</string>
            </property>
@@ -622,7 +634,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Set 0</string>
+            <string>Mark home</string>
            </property>
           </widget>
          </item>
@@ -962,6 +974,12 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>Seek ref</string>
            </property>
@@ -989,7 +1007,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Set 0</string>
+            <string>Mark home</string>
            </property>
           </widget>
          </item>
