@@ -69,14 +69,14 @@
        <item row="0" column="1">
         <widget class="QPushButton" name="btn_dn2">
          <property name="text">
-          <string>IR + VIS</string>
+          <string>VIS</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
+       <item row="0" column="0">
         <widget class="QPushButton" name="btn_dn1">
          <property name="text">
-          <string>VIS</string>
+          <string>IR + VIS</string>
          </property>
         </widget>
        </item>
