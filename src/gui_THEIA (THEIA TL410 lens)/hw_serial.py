@@ -104,16 +104,15 @@ class SerialComm(QObject):
                         if rec == "init":
                             self.__ser_send(ser, '$B2')
                             self.__ser_send(ser, "M243 C6")                   # stepping (should be set 64 by default)
+                            self.__ser_send(ser, "M243 A2")                   # stepping (should be set 64 by default)
+                            self.__ser_send(ser, "M243 B2")                   # stepping (should be set 64 by default)
                             self.__ser_send(ser, 'M230')                      # set normal move
                             self.__ser_send(ser, 'G91')                       # set to rel movement mode (just in case it is not set yet)
                             self.__ser_send(ser, "M238")                      # Energize PI leds
-                            #self.__ser_send(ser, "M235 C100")                  # set motor sleep power
-                            #self.__ser_send(ser, "M234 C150")                 # set motor power
-                            self.__ser_send(ser, "M234 A190 B190 C190 D90")                  # set motor power
-                            self.__ser_send(ser, "M235 A120 B120 C120")             # set motor sleep power
-                            self.__ser_send(ser, "M240 A600 B600 C600")                 # Set motor drive speed #TODO: remove and use use config settings from main
-                            self.__ser_send(ser, "M232 A1500 B1500 C1500 E2000 F2000 G2000")  # Set PI low/high detection voltage
-
+                            self.__ser_send(ser, "M234 A180 B180 C180 D90")                  # set motor power
+                            self.__ser_send(ser, "M235 A50 B50 C90")             # set motor sleep power
+                            self.__ser_send(ser, "M240 A5000 B5000 C5000")                 # Set motor drive speed #TODO: remove and use use config settings from main
+                            self.__ser_send(ser, "M232 A2000 B2000 C2000 E3000 F3000 G3000")  # Set PI low/high detection voltage
 
                             idle_counter = 0
 
@@ -122,14 +121,6 @@ class SerialComm(QObject):
                             r = ser.readline().decode("utf-8").strip()
                             self.strVersion.emit(r)
                             idle_counter = 0
-
-                        '''
-                        if rec == "voltage":
-                            ser.write(bytes('M247\r\n', 'utf8'))
-                            r = ser.readline().decode("utf-8").strip()
-                            self.strVoltage.emit(r)
-                            idle_counter = 0
-                        '''
 
                         if rec == "status1":
                             status_version = "status1"

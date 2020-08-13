@@ -1,18 +1,18 @@
 {
-    "boot_count": 559,
+    "boot_count": 581,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 0,
-            "speed": 301
+            "pos": 36768,
+            "speed": 3286
         },
         "B": {
-            "pos": 0,
-            "speed": 200
+            "pos": 31168,
+            "speed": 5000
         },
         "C": {
-            "pos": 0,
-            "speed": 200
+            "pos": 50,
+            "speed": 3514
         }
     },
     "defaults": {
@@ -63,8 +63,8 @@
             "C": 0
         }
     },
-    "seek_timeout": 5.0,
-    "speed_default": 350,
-    "speed_max": 4000,
-    "speed_min": 200
+    "seek_timeout": 10.0,
+    "speed_default": 2000,
+    "speed_max": 9000,
+    "speed_min": 1000
 }
