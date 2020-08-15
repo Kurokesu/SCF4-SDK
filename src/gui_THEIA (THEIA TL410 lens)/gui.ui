@@ -168,6 +168,9 @@
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QSlider" name="slider_a">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                <horstretch>0</horstretch>
@@ -1039,6 +1042,9 @@
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
             <widget class="QSlider" name="slider_c">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                <horstretch>0</horstretch>

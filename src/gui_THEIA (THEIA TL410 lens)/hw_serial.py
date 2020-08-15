@@ -52,7 +52,7 @@ class SerialComm(QObject):
             ret.append(int(t.strip()))
         return ret
 
-    def __wait_till_stop(self, ser, initial_status, axis, timeout=5):
+    def __wait_till_stop(self, ser, initial_status, axis, timeout=10):
         elapsed_time = 0
         start_time = time.time()
         while elapsed_time < timeout:
@@ -103,9 +103,9 @@ class SerialComm(QObject):
 
                         if rec == "init":
                             self.__ser_send(ser, '$B2')
-                            self.__ser_send(ser, "M243 C6")                   # stepping (should be set 64 by default)
                             self.__ser_send(ser, "M243 A2")                   # stepping (should be set 64 by default)
                             self.__ser_send(ser, "M243 B2")                   # stepping (should be set 64 by default)
+                            self.__ser_send(ser, "M243 C6")                   # stepping (should be set 64 by default)
                             self.__ser_send(ser, 'M230')                      # set normal move
                             self.__ser_send(ser, 'G91')                       # set to rel movement mode (just in case it is not set yet)
                             self.__ser_send(ser, "M238")                      # Energize PI leds
@@ -152,20 +152,17 @@ class SerialComm(QObject):
                         if rec == "seek_a":
                             self.__ser_send(ser, "G91")
                             self.__ser_send(ser, "M230 A")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G0 A13000")       # move forward (and move back to find PI to eliminate hysteresis)
+                            self.__ser_send(ser, "G0 A-10000")       # move forward (and move back to find PI to eliminate hysteresis)
                             self.__wait_till_stop(ser, 1, CHA_MOVE) # Wait until homing is over
 
                             status_str = self.__ser_send(ser, "!1")
                             status = self.__parse_status(status_str)
 
                             self.__ser_send(ser, "M231 A")          # Set motion to forced mode
-                            self.__ser_send(ser, "G0 A-100")
+                            self.__ser_send(ser, "G0 A100")
                             self.__wait_till_stop(ser, status[CHA_PI], CHA_PI)     # Wait until homing is over
 
                             self.__ser_send(ser, "M230 A")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G92 A0")          # set current coordinate to 0
-                            self.__ser_send(ser, "G0 A-8900")       # still using relative coordinate system move a bit
-                            self.__wait_till_stop(ser, 1, CHA_MOVE) # Wait until homing is over
                             self.__ser_send(ser, "G92 A0")          # set current coordinate to 0
                             self.__ser_send(ser, "G90")
                             idle_counter = 0
@@ -173,20 +170,17 @@ class SerialComm(QObject):
                         if rec == "seek_b":
                             self.__ser_send(ser, "G91")
                             self.__ser_send(ser, "M230 B")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G0 B10000")        # move forward (and move back to find PI to eliminate hysteresis)
+                            self.__ser_send(ser, "G0 B-10000")       # move forward (and move back to find PI to eliminate hysteresis)
                             self.__wait_till_stop(ser, 1, CHB_MOVE) # Wait until homing is over
 
                             status_str = self.__ser_send(ser, "!1")
                             status = self.__parse_status(status_str)
 
                             self.__ser_send(ser, "M231 B")          # Set motion to forced mode
-                            self.__ser_send(ser, "G0 B-100")        # move lens until PI toggles
+                            self.__ser_send(ser, "G0 B100")
                             self.__wait_till_stop(ser, status[CHB_PI], CHB_PI)     # Wait until homing is over
 
                             self.__ser_send(ser, "M230 B")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G92 B0")          # set current coordinate to 0
-                            self.__ser_send(ser, "G0 B-5000")       # still using relative coordinate system move a bit
-                            self.__wait_till_stop(ser, 1, CHB_MOVE) # Wait until homing is over
                             self.__ser_send(ser, "G92 B0")          # set current coordinate to 0
                             self.__ser_send(ser, "G90")
                             idle_counter = 0
@@ -194,19 +188,7 @@ class SerialComm(QObject):
                         if rec == "seek_c":
                             self.__ser_send(ser, "G91")
                             self.__ser_send(ser, "M230 C")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G0 C5500")        # move forward (and move back to find PI to eliminate hysteresis)
-                            self.__wait_till_stop(ser, 1, CHC_MOVE) # Wait until homing is over
-
-                            status_str = self.__ser_send(ser, "!1")
-                            status = self.__parse_status(status_str)
-
-                            self.__ser_send(ser, "M231 C")          # Set motion to forced mode
-                            self.__ser_send(ser, "G0 C-100")        # move lens until PI toggles
-                            self.__wait_till_stop(ser, status[CHC_PI], CHC_PI)     # Wait until homing is over
-
-                            self.__ser_send(ser, "M230 C")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G92 C0")          # set current coordinate to 0
-                            self.__ser_send(ser, "G0 C-5000")       # still using relative coordinate system move a bit
+                            self.__ser_send(ser, "G0 C-1000")        # move forward (and move back to find PI to eliminate hysteresis)
                             self.__wait_till_stop(ser, 1, CHC_MOVE) # Wait until homing is over
                             self.__ser_send(ser, "G92 C0")          # set current coordinate to 0
                             self.__ser_send(ser, "G90")

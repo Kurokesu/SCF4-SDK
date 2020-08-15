@@ -163,6 +163,10 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.slider_a.valueChanged.connect(self.slider_a_changed)
         self.slider_b.valueChanged.connect(self.slider_b_changed)
         self.slider_c.valueChanged.connect(self.slider_c_changed)
+        self.slider_a.setEnabled(False)
+        self.slider_b.setEnabled(False)
+        self.slider_c.setEnabled(True)
+
 
     def slider_a_speed_changed(self, val):
         self.label_a_speed.setText(str(val))
