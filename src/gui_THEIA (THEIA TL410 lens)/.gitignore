@@ -1,1 +1,10 @@
+*.pyc
 __pycache__
+dist
+build
+releases
+.idea
+out
+*.spec
+scripts
+
