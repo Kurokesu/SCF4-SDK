@@ -968,7 +968,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "SCF4-M demonstration / L087 lens"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "SCF4-M demo / L087 lens (x18)"))
         self.group_comport.setTitle(_translate("MainWindow", "COM port"))
         self.btn_connect.setText(_translate("MainWindow", "Connect"))
         self.btn_disconnect.setText(_translate("MainWindow", "Disconnect"))
