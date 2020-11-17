@@ -167,22 +167,22 @@ class SerialComm(QObject):
                             if status[3] == 1:
                                 self.__ser_send(ser, "G91")
                                 self.__ser_send(ser, "M231 A")          # Set motion to forced mode
-                                self.__ser_send(ser, "G0 A-100")
+                                self.__ser_send(ser, "G0 A+100")
                                 self.__wait_till_stop(ser, status[CHA_PI], CHA_PI)     # Wait until homing is over
                             else:
                                 self.__ser_send(ser, "G91")
                                 self.__ser_send(ser, "M231 A")          # Set motion to forced mode
-                                self.__ser_send(ser, "G0 A+100")
+                                self.__ser_send(ser, "G0 A-100")
                                 self.__wait_till_stop(ser, status[CHA_PI], CHA_PI)     # Wait until homing is over
 
                             self.__ser_send(ser, "M230 A")          # Set motion back to normal mode
-                            self.__ser_send(ser, "G0 A+200")
+                            self.__ser_send(ser, "G0 A-200")
                             self.__wait_till_stop(ser, 1, CHA_MOVE) # Wait until homing is over
 
                             # TODO: slower speed
                             self.__ser_send(ser, "G91")
                             self.__ser_send(ser, "M231 A")          # Set motion to forced mode
-                            self.__ser_send(ser, "G0 A-100")
+                            self.__ser_send(ser, "G0 A+100")
                             self.__wait_till_stop(ser, status[CHA_PI], CHA_PI)     # Wait until homing is over
 
                             # TODO: restore speed
