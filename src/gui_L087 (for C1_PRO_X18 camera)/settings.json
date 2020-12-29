@@ -1,13 +1,13 @@
 {
-    "boot_count": 7,
+    "boot_count": 8,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 41800,
+            "pos": 0,
             "speed": 600
         },
         "B": {
-            "pos": 32335,
+            "pos": 0,
             "speed": 600
         },
         "C": {
@@ -35,7 +35,7 @@
             "speed": 0
         }
     },
-    "port": "COM13",
+    "port": "COM24",
     "presets": {
         "1": {
             "A": 41800,
