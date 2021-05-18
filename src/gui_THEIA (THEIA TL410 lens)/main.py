@@ -1,5 +1,13 @@
 import sys
 import os
+import serial.tools.list_ports
+
+'''
+com_ports = sorted(serial.tools.list_ports.comports())
+for port, desc, hwid in com_ports:
+    print(port.strip())
+'''
+
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5 import sip
 from PyQt5.QtCore import Qt, QTimer, QThread
@@ -18,19 +26,7 @@ MOVE_REL      = 0
 MOVE_ABS      = 1
 
 # print(sys.version)
-
-if os.name == 'nt':
-    from serial.tools.list_ports_windows import *
-elif sys.platform == 'darwin':
-    from serial.tools.list_ports_osx import *
-    from serial.tools.list_ports_vid_pid_osx_posix import *
-elif os.name == 'posix':
-    from serial.tools.list_ports_posix import *
-    from serial.tools.list_ports_vid_pid_osx_posix import *
-else:
-    raise ImportError("Serial error: no implementation for your platform ('%s') available" % (os.name,))
-
-ser = serial.Serial()
+# ser = serial.Serial()
 q = queue.Queue()
 q_labels = queue.Queue()
 
@@ -58,7 +54,7 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
 
         # get available com ports
         self.combo_ports.clear()
-        com_ports = sorted(comports())
+        com_ports = sorted(serial.tools.list_ports.comports())
         for port, desc, hwid in com_ports:
             self.combo_ports.addItem(port.strip())
 

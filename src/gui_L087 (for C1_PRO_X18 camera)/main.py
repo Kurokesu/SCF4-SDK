@@ -26,8 +26,7 @@ MOVE_REL      = 0
 MOVE_ABS      = 1
 
 # print(sys.version)
-
-#ser = serial.Serial()
+# ser = serial.Serial()
 q = queue.Queue()
 q_labels = queue.Queue()
 
