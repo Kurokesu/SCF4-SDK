@@ -1,13 +1,13 @@
 {
-    "boot_count": 14,
+    "boot_count": 76,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 0,
+            "pos": 32000,
             "speed": 600
         },
         "B": {
-            "pos": 0,
+            "pos": 32000,
             "speed": 600
         },
         "C": {
@@ -35,16 +35,17 @@
             "speed": 0
         }
     },
-    "port": "COM24",
+    "enable_save_keypoint_button": true,
+    "port": "COM231",
     "presets": {
         "1": {
             "A": 41800,
-            "B": 32335,
+            "B": 32415,
             "C": 0
         },
         "2": {
             "A": 36400,
-            "B": 33835,
+            "B": 33875,
             "C": 0
         },
         "3": {
@@ -54,15 +55,16 @@
         },
         "4": {
             "A": 24750,
-            "B": 35695,
+            "B": 35395,
             "C": 0
         },
         "5": {
-            "A": 21750,
-            "B": 29315,
+            "A": 22500,
+            "B": 29435,
             "C": 0
         }
     },
+    "saved_points": [],
     "seek_timeout": 5.0,
     "speed_default": 600,
     "speed_max": 4000,

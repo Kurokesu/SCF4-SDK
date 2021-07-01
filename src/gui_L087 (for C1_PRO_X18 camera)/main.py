@@ -1,13 +1,5 @@
 import sys
 import os
-import serial.tools.list_ports
-
-'''
-com_ports = sorted(serial.tools.list_ports.comports())
-for port, desc, hwid in com_ports:
-    print(port.strip())
-'''
-
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5 import sip
 from PyQt5.QtCore import Qt, QTimer, QThread
@@ -26,7 +18,19 @@ MOVE_REL      = 0
 MOVE_ABS      = 1
 
 # print(sys.version)
-# ser = serial.Serial()
+
+if os.name == 'nt':
+    from serial.tools.list_ports_windows import *
+elif sys.platform == 'darwin':
+    from serial.tools.list_ports_osx import *
+    from serial.tools.list_ports_vid_pid_osx_posix import *
+elif os.name == 'posix':
+    from serial.tools.list_ports_posix import *
+    from serial.tools.list_ports_vid_pid_osx_posix import *
+else:
+    raise ImportError("Serial error: no implementation for your platform ('%s') available" % (os.name,))
+
+ser = serial.Serial()
 q = queue.Queue()
 q_labels = queue.Queue()
 
@@ -55,7 +59,7 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
 
         # get available com ports
         self.combo_ports.clear()
-        com_ports = sorted(serial.tools.list_ports.comports())
+        com_ports = sorted(comports())
         for port, desc, hwid in com_ports:
             self.combo_ports.addItem(port.strip())
 
@@ -72,6 +76,12 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.hw.moveToThread(self.thread_serial)
         self.thread_serial.started.connect(self.hw.serial_worker)
         self.thread_serial.start()
+        #self.config["saved_points"] = []
+
+        if self.config["enable_save_keypoint_button"] == True:
+            self.push_save_go.show()
+        else:
+            self.push_save_go.hide()
 
         self.slider_a_speed.setMinimum(self.config["speed_min"])
         self.slider_a_speed.setMaximum(self.config["speed_max"])
@@ -95,6 +105,9 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.btn_dn2.clicked.connect(self.btn_dn2_clicked)
         self.btn_aux_on.clicked.connect(self.btn_aux_on_clicked)
         self.btn_aux_off.clicked.connect(self.btn_aux_off_clicked)
+        self.push_save_go.clicked.connect(self.push_save_go_clicked)
+
+        
 
         self.btn_a_left.clicked.connect(self.btn_a_left_clicked)
         self.btn_a_right.clicked.connect(self.btn_a_right_clicked)
@@ -352,12 +365,15 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
 
     def btn_a_seek_clicked(self):
         self.hw.action_recipe.put("seek_a")
+        self.btn_a_seek.setStyleSheet('')
 
     def btn_b_seek_clicked(self):
         self.hw.action_recipe.put("seek_b")
+        self.btn_b_seek.setStyleSheet('')
 
     def btn_c_seek_clicked(self):
         self.hw.action_recipe.put("seek_c")
+        self.btn_c_seek.setStyleSheet('')
 
     def push_pr1_set_clicked(self):
         self.config["presets"]["1"]["A"] = self.config["current"]["A"]["pos"]
@@ -423,6 +439,11 @@ class MyWindowClass(QtWidgets.QMainWindow, gui.Ui_MainWindow):
     def push_pr5_go_clicked(self):
         self.set_move_mode(MOVE_ABS)
         self.hw.send("G0 A" + str(self.config["presets"]["5"]["A"]) + " B" + str(self.config["presets"]["5"]["B"]) + " C" + str(self.config["presets"]["5"]["C"]) + "\r\n")
+
+    def push_save_go_clicked(self):
+        print("KP:", self.label_a_pos.text(), self.label_b_pos.text())
+        #pos = (float(self.label_a_pos.text()), float(self.label_b_pos.text()))
+        #self.config["saved_points"].append(pos)       
 
     def closeEvent(self, event):
         global config
