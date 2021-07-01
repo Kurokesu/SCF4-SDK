@@ -8,4 +8,4 @@ And run `sweep.py` code for smooth transition from wide to narrow view angle wit
 
 ![](2.png)
 
-More details on blog [https://www.kurokesu.com/main/2021/07/01/experiments-with-parfocal-motorized-zoom-lens/]
+More details on blog: https://www.kurokesu.com/main/2021/07/01/experiments-with-parfocal-motorized-zoom-lens/
