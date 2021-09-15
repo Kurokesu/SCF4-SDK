@@ -55,6 +55,7 @@ ser.flushOutput()
 
 
 
+
 c = camera.Cam()
 print("Starting cam")
 c.start()

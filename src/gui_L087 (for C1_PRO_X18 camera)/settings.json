@@ -1,5 +1,5 @@
 {
-    "boot_count": 76,
+    "boot_count": 77,
     "clean_exit": true,
     "current": {
         "A": {
@@ -36,7 +36,7 @@
         }
     },
     "enable_save_keypoint_button": true,
-    "port": "COM231",
+    "port": "COM7",
     "presets": {
         "1": {
             "A": 41800,
