@@ -1,13 +1,13 @@
 {
-    "boot_count": 77,
+    "boot_count": 78,
     "clean_exit": true,
     "current": {
         "A": {
-            "pos": 32000,
+            "pos": 22500,
             "speed": 600
         },
         "B": {
-            "pos": 32000,
+            "pos": 29615,
             "speed": 600
         },
         "C": {
@@ -36,7 +36,7 @@
         }
     },
     "enable_save_keypoint_button": true,
-    "port": "COM7",
+    "port": "COM100",
     "presets": {
         "1": {
             "A": 41800,

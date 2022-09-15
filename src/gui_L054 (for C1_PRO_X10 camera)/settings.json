@@ -1,5 +1,5 @@
 {
-    "boot_count": 623,
+    "boot_count": 625,
     "clean_exit": true,
     "current": {
         "A": {
@@ -35,7 +35,7 @@
             "speed": 0
         }
     },
-    "port": "COM67",
+    "port": "COM101",
     "presets": {
         "1": {
             "A": 39700,
