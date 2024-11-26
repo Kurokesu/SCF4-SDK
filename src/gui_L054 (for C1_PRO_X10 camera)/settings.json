@@ -1,5 +1,5 @@
 {
-    "boot_count": 625,
+    "boot_count": 631,
     "clean_exit": true,
     "current": {
         "A": {
@@ -7,7 +7,7 @@
             "speed": 499
         },
         "B": {
-            "pos": 31100,
+            "pos": 30940,
             "speed": 400
         },
         "C": {
@@ -35,7 +35,7 @@
             "speed": 0
         }
     },
-    "port": "COM101",
+    "port": "COM2898",
     "presets": {
         "1": {
             "A": 39700,
